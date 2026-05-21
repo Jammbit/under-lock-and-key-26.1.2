@@ -1,0 +1,38 @@
+{
+	"schemaVersion": 1,
+	"id": "under-lock-and-key",
+	"version": "${version}",
+	"name": "Under Lock and Key",
+	"description": "test!",
+	"authors": [
+		"Jammbit"
+	],
+	"contact": {
+		"homepage": "",
+		"sources": ""
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/under-lock-and-key/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.jammbit.underlockandkey.UnderLockAndKey"
+		],
+		"client": [
+			"com.jammbit.underlockandkey.client.UnderLockAndKeyClient"
+		]
+	},
+	"mixins": [
+		"under-lock-and-key.mixins.json",
+		{
+			"config": "under-lock-and-key.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.2",
+		"minecraft": "~26.1.2",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}
