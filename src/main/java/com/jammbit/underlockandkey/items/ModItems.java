@@ -15,7 +15,11 @@ import net.minecraft.world.item.Item;
 
 public class ModItems {
     
-    public static final Item TESTITEM = registerItem("test_item", Item::new, new Item.Properties());
+    public static final Item TESTITEM = registerItem(
+		"test_item", 
+		Item::new, 
+		new Item.Properties()
+	);
  
     //Helper method that allows for registering items
     public static <T extends Item> T registerItem(String name, Function<Item.Properties, T> itemFactory, Item.Properties settings) {
