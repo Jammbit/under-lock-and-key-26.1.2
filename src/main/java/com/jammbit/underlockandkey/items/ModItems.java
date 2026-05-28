@@ -15,13 +15,21 @@ import net.minecraft.world.item.Item;
 
 public class ModItems {
     
-    public static final Item TESTITEM = registerItem("test_item", Item::new);
-
+    public static final Item TESTITEM = registerItem("test_item", Item::new, new Item.Properties());
+ 
     //Helper method that allows for registering items
-    private static Item registerItem(String name, Function<Item.Properties, Item> function){
-        return Registry.register(BuiltInRegistries.ITEM, Identifier.fromNamespaceAndPath(UnderLockAndKey.MOD_ID, name), 
-            function.apply(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(UnderLockAndKey.MOD_ID, name)))));
-    }
+    public static <T extends Item> T registerItem(String name, Function<Item.Properties, T> itemFactory, Item.Properties settings) {
+		// Create the item key.
+		ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(UnderLockAndKey.MOD_ID, name));
+
+		// Create the item instance.
+		T item = itemFactory.apply(settings.setId(itemKey));
+
+		// Register the item.
+		Registry.register(BuiltInRegistries.ITEM, itemKey, item);
+
+		return item;
+	}
 
     public static void initializeModItems() {
         UnderLockAndKey.LOGGER.info("Registering Mod Items for " + UnderLockAndKey.MOD_ID);

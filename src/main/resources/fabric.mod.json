@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "under-lock-and-key",
+	"id": "under_lock_and_key",
 	"version": "${version}",
 	"name": "Under Lock and Key",
 	"description": "test!",
@@ -12,7 +12,7 @@
 		"sources": ""
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/under-lock-and-key/icon.png",
+	"icon": "assets/under_lock_and_key/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
