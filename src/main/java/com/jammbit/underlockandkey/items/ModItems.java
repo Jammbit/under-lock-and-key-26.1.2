@@ -23,7 +23,7 @@ public class ModItems {
             function.apply(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(UnderLockAndKey.MOD_ID, name)))));
     }
 
-    public static void registerModItems() {
+    public static void initializeModItems() {
         UnderLockAndKey.LOGGER.info("Registering Mod Items for " + UnderLockAndKey.MOD_ID);
 
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(output -> {output.accept(TESTITEM);});
