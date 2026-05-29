@@ -19,6 +19,13 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 
 public class ModBlocks{
     
+    public static final Block TESTBLOCK = register(
+        "test_block",
+        Block::new,
+        BlockBehaviour.Properties.of().sound(SoundType.GRASS),
+        true
+    );
+
     private static Block register(String name, Function<BlockBehaviour.Properties, Block> blockFactory, BlockBehaviour.Properties settings, boolean shouldRegisterItem){
         // Creates the registry key for the block
         ResourceKey<Block> blockKey = keyOfBlock(name);
@@ -47,15 +54,7 @@ public class ModBlocks{
     public static void initializeModBlocks() {
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.BUILDING_BLOCKS).register((creativeTab) -> {
 	    creativeTab.accept(ModBlocks.TESTBLOCK.asItem());
-});
+        });
     }
-
-    public static final Block TESTBLOCK = register(
-        "test_block",
-        Block::new,
-        BlockBehaviour.Properties.of().sound(SoundType.GRASS),
-        true
-    );
-
 
 }
