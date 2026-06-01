@@ -1,5 +1,5 @@
 {
-    "parent": "minecraft: block/cube_all",
+    "parent": "minecraft:block/cube_all",
     "textures": {
         "all": "under_lock_and_key:block/test_block"
     }
