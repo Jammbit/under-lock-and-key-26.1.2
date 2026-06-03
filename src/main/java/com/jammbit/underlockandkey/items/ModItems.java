@@ -15,6 +15,12 @@ import net.minecraft.world.item.Item;
 
 public class ModItems {
     
+	public static final VaultKey VAULTKEY = registerItem(
+		"vault_key",
+		VaultKey::new,
+		new Item.Properties()
+	);
+
     public static final Item TESTITEM = registerItem(
 		"test_item", 
 		Item::new, 
@@ -39,6 +45,8 @@ public class ModItems {
         UnderLockAndKey.LOGGER.info("Registering Mod Items for " + UnderLockAndKey.MOD_ID);
 
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(output -> {output.accept(TESTITEM);});
+		
+		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(output -> {output.accept(VAULTKEY);});
     }
 
 }
