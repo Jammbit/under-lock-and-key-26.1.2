@@ -26,6 +26,13 @@ public class ModBlocks{
         true
     );
 
+    public static final Block VAULTBLOCK = register(
+        "lock_vault",
+        LockVault::new,
+        BlockBehaviour.Properties.of().sound(SoundType.IRON), 
+        true
+    );
+
     private static Block register(String name, Function<BlockBehaviour.Properties, Block> blockFactory, BlockBehaviour.Properties settings, boolean shouldRegisterItem){
         // Creates the registry key for the block
         ResourceKey<Block> blockKey = keyOfBlock(name);
@@ -51,7 +58,7 @@ public class ModBlocks{
         return ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(UnderLockAndKey.MOD_ID, name));
     }
 
-    public static void initializeModBlocks() {
+    public static void initialize() {
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.BUILDING_BLOCKS).register((creativeTab) -> {
 	    creativeTab.accept(ModBlocks.TESTBLOCK.asItem());
         });

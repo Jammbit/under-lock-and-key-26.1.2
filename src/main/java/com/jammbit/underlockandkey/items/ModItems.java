@@ -41,8 +41,7 @@ public class ModItems {
 		return item;
 	}
 
-    public static void initializeModItems() {
-        UnderLockAndKey.LOGGER.info("Registering Mod Items for " + UnderLockAndKey.MOD_ID);
+    public static void initialize() {
 
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(output -> {output.accept(TESTITEM);});
 		

@@ -1,6 +1,6 @@
 {
     "model": {
         "type": "minecraft:model",
-        "model": "under_lock_and_key:item/test_item"
+        "model": "minecraft:item/trial_key"
     }
 }

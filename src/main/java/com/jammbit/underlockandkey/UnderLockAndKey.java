@@ -19,8 +19,8 @@ public class UnderLockAndKey implements ModInitializer {
 	@Override
 	public void onInitialize() {
 
-		ModItems.initializeModItems();
-		ModBlocks.initializeModBlocks();
+		ModItems.initialize();
+		ModBlocks.initialize();
 		
 	}
 }
