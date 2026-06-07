@@ -1,6 +1,5 @@
 package com.jammbit.underlockandkey.blocks;
 
-import com.jammbit.underlockandkey.blocks.ModBlocks;
 import com.jammbit.underlockandkey.UnderLockAndKey;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
