@@ -21,7 +21,7 @@ public class VaultBlockMenu extends AbstractContainerMenu{
 	private static final int INVENTORY_END = INVENTORY_START + Inventory.INVENTORY_SIZE;
 
 	private static final int CONTAINER_START_X = 8;
-	private static final int CONTAINER_START_Y = 84;
+	private static final int CONTAINER_START_Y = 18;
 	private static final int INVENTORY_START_X = 8;
 	private static final int INVENTORY_START_Y = 84;
 
@@ -37,8 +37,9 @@ public class VaultBlockMenu extends AbstractContainerMenu{
         super(ModMenuType.VAULT_BLOCK, containerId);
         checkContainerSize(container, SLOTS_COUNT);
         this.container = container;
+		container.startOpen(inventory.player);
         this.addSlots();
-        this.addStandardInventorySlots(container, INVENTORY_START_X, INVENTORY_START_Y);
+        this.addStandardInventorySlots(inventory, INVENTORY_START_X, INVENTORY_START_Y);
     }
 
     private void addSlots() {

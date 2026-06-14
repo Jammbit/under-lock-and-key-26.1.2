@@ -5,8 +5,10 @@ import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.jammbit.underlockandkey.blocks.ModBlockEntities;
 import com.jammbit.underlockandkey.blocks.ModBlocks;
 import com.jammbit.underlockandkey.items.ModItems;
+import com.jammbit.underlockandkey.menu.ModMenuType;
 
 public class UnderLockAndKey implements ModInitializer {
 	public static final String MOD_ID = "under_lock_and_key";
@@ -21,6 +23,8 @@ public class UnderLockAndKey implements ModInitializer {
 
 		ModItems.initialize();
 		ModBlocks.initialize();
-		
+		ModBlockEntities.initialize();
+		ModMenuType.initialize();
+
 	}
 }

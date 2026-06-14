@@ -62,6 +62,10 @@ public class ModBlocks{
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.BUILDING_BLOCKS).register((creativeTab) -> {
 	    creativeTab.accept(ModBlocks.TESTBLOCK.asItem());
         });
+
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.BUILDING_BLOCKS).register((creativeTab) -> {
+	    creativeTab.accept(ModBlocks.VAULTBLOCK.asItem());
+        });
     }
 
 }

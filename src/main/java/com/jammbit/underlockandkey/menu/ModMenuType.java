@@ -11,12 +11,14 @@ import net.minecraft.world.inventory.MenuType;
 public class ModMenuType {
     
     public static final MenuType<VaultBlockMenu> VAULT_BLOCK = register(
-        "vault_block", 
+        "lock_vault", 
         VaultBlockMenu::new
     );
 
     public static <T extends AbstractContainerMenu> MenuType<T> register( String name, MenuType.MenuSupplier<T> constructor){
         return Registry.register(BuiltInRegistries.MENU, name, new MenuType<>(constructor, FeatureFlagSet.of()));
     }
+
+    public static void initialize(){}
 
 }

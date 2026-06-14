@@ -4,6 +4,7 @@ import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 
 import com.jammbit.underlockandkey.container.ImplementedContainer;
+import com.jammbit.underlockandkey.menu.custom.VaultBlockMenu;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
@@ -38,7 +39,7 @@ public class VaultBlockEntity extends BlockEntity implements ImplementedContaine
 
 	@Override
 	public @Nullable AbstractContainerMenu createMenu(int containerId, Inventory inventory, Player player) {
-		return null;
+		return new VaultBlockMenu(containerId, inventory, this);
 	}
 
 	@Override

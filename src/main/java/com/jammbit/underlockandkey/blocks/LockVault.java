@@ -29,12 +29,14 @@ public class LockVault extends BaseEntityBlock {
 	@Override
 	protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
 		
-		if (!locked && !level.isClientSide() && level.getBlockEntity(pos) instanceof VaultBlockEntity lockVault){
+		if (!level.isClientSide() && level.getBlockEntity(pos) instanceof VaultBlockEntity lockVault){
 			player.openMenu(lockVault);
 		}
 
 		return InteractionResult.SUCCESS;
 	}
+
+	
 
     @Nullable
 	@Override

@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 public class ModBlockEntities {
     
     public static final BlockEntityType<VaultBlockEntity> VAULT_BLOCK_ENTITY = register(
-        "vault", 
+        "lock_vault", 
         VaultBlockEntity::new, 
         ModBlocks.VAULTBLOCK
     );

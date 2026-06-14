@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:block/cube_all",
+    "textures": {
+        "all": "under_lock_and_key:block/lock_vault"
+    }
+}
