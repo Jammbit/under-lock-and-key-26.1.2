@@ -23,12 +23,32 @@ import net.minecraft.world.level.storage.ValueOutput;
 
 public class VaultBlockEntity extends BlockEntity implements ImplementedContainer, MenuProvider {
 
+	private String openKey = null;
+	private boolean locked = true;
 	public static final int CONTAINER_SIZE = 3 * 9;
 	private final NonNullList<ItemStack> items = NonNullList.withSize(CONTAINER_SIZE, ItemStack.EMPTY);
 	
 
     public VaultBlockEntity(BlockPos pos, BlockState state) {
 		super(ModBlockEntities.VAULT_BLOCK_ENTITY, pos, state);
+	}
+
+	public void setKey(String key){
+		this.openKey = key;
+		this.setChanged();
+	}
+
+	public void setLocked(boolean lock){
+		this.locked = lock;
+		this.setChanged();
+	}
+
+	public String getKey(){
+		return this.openKey;
+	}
+
+	public boolean isLocked(){
+		return this.locked;
 	}
 
 	@Override
@@ -56,11 +76,21 @@ public class VaultBlockEntity extends BlockEntity implements ImplementedContaine
 	protected void loadAdditional(ValueInput input) {
 		super.loadAdditional(input);
 		ContainerHelper.loadAllItems(input, this.items);
+
+		this.locked = input.getBooleanOr("IsLocked", false);
+		this.openKey = input.getStringOr("theKey", "Vault Key");
+
 	}
 
 	@Override
 	protected void saveAdditional(ValueOutput output) {
 		ContainerHelper.saveAllItems(output, this.items);
+
+		output.putBoolean("IsLocked", this.locked);
+		if(this.openKey == null) {} 
+		else { 
+			output.putString("theKey", this.openKey); 
+		}
 		super.saveAdditional(output);
 	}
 
