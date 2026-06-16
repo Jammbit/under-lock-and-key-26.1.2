@@ -6,6 +6,8 @@ import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 
+// !! I got this specific file from the Minecraft Fabric documentation. This is a template made by someone else. !!
+
 /**
  * A simple {@link Container} implementation with only default methods + an item list getter.
  *

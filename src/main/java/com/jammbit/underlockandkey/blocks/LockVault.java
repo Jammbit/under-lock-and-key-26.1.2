@@ -30,7 +30,7 @@ public class LockVault extends BaseEntityBlock {
 	protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
 
 		if (!level.isClientSide() && level.getBlockEntity(pos) instanceof VaultBlockEntity lockVault) {
-			System.out.println("Interaction success!");
+			// System.out.println("Interaction success!");
 			if (!lockVault.isLocked()){
 				player.openMenu(lockVault);
 				return InteractionResult.SUCCESS;
@@ -53,12 +53,19 @@ public class LockVault extends BaseEntityBlock {
 				if (lockVault.getKey() == null) {
 					// System.out.println("Assigning key success!");
 					lockVault.setKey(itemStack.getHoverName().getString());
+					player.sendOverlayMessage(net.minecraft.network.chat.Component.literal("Key assigned!"));
+					return InteractionResult.SUCCESS;
 				} else {
-					System.out.println("is \"" + lockVault.getKey() + "\" equal to \"" + itemStack.getItemName().getString() + "\" ?");
+					// System.out.println("is \"" + lockVault.getKey() + "\" equal to \"" + itemStack.getItemName().getString() + "\" ?");
 					if (itemStack.getHoverName().getString().equals(lockVault.getKey())) {
-						System.out.println("Unlock Success!");
+						// System.out.println("Unlock Success!");
 						lockVault.setLocked(!lockVault.isLocked());
-						System.out.println(lockVault.isLocked());
+						// System.out.println(lockVault.isLocked());
+						if (lockVault.isLocked())
+							player.sendOverlayMessage(net.minecraft.network.chat.Component.literal("Locked!"));
+						else
+							player.sendOverlayMessage(net.minecraft.network.chat.Component.literal("Unlocked!"));
+
 						return InteractionResult.SUCCESS;
 					}
 				}

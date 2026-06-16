@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": "minecraft:gold_ingot"
+  },
+  "pattern": [
+    "   ",
+    "XXX",
+    "  X"
+  ],
+  "result": {
+    "id": "under_lock_and_key:vault_key"
+  }
+}
